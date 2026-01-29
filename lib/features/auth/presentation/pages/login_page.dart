@@ -1,10 +1,12 @@
-import 'package:field_techy/core/theme/app_theme.dart';
 import 'package:field_techy/core/widgets/app_logo.dart';
 import 'package:field_techy/core/widgets/gradient_button.dart';
+import 'package:field_techy/features/auth/utils/profile_validator.dart';
 import 'package:field_techy/features/client/utils/client_dashboard_routes.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../utils/auth_routes.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -39,7 +41,9 @@ class LoginPage extends StatelessWidget {
                         color: Theme.of(context).colorScheme.secondary,
                         fontWeight: FontWeight.bold,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()..onTap = () {
+                        context.push(AuthRoutes.signupPath);
+                      },
                     ),
                   ],
                 ),
@@ -51,6 +55,7 @@ class LoginPage extends StatelessWidget {
                 decoration: const InputDecoration(
                   hintText: 'Email Address',
                 ),
+                validator: ProfileValidator.validateEmail,
               ),
               const SizedBox(height: 16),
               Text('Password *', style: Theme.of(context).textTheme.labelLarge),
@@ -61,6 +66,7 @@ class LoginPage extends StatelessWidget {
                   hintText: 'Password',
                   suffixIcon: Icon(Icons.visibility),
                 ),
+                validator: ProfileValidator.validatePassword,
               ),
               const SizedBox(height: 16),
               Row(

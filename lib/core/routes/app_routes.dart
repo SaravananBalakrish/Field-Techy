@@ -12,6 +12,7 @@ class AppRoutes {
     navigatorKey: _rootNavigatorKey,
     routes: [
       AuthRoutes.login,
+      AuthRoutes.signUp,
       ShellRoute(
         builder: (context, state, child) {
           return Scaffold(

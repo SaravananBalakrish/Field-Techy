@@ -91,7 +91,7 @@ class AppTheme {
       ),
     ),
     checkboxTheme: CheckboxThemeData(
-      side: BorderSide(width: 0.5),
+      side: const BorderSide(width: 0.5),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
     ),
     dividerColor: Colors.grey.shade600,
@@ -101,6 +101,29 @@ class AppTheme {
       endIndent: 16,
       indent: 16,
       space: 5
+    ),
+    segmentedButtonTheme: SegmentedButtonThemeData(
+      style: ButtonStyle(
+        shape: WidgetStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
+        padding: WidgetStatePropertyAll(EdgeInsets.symmetric(horizontal: 8, vertical: 10)),
+        backgroundColor: WidgetStateProperty.resolveWith<Color?>(
+          (Set<WidgetState> states) {
+            if (states.contains(WidgetState.selected)) {
+              return lightGreen;
+            }
+            return null;
+          },
+        ),
+        foregroundColor: WidgetStateProperty.all(textColor),
+        side: WidgetStateProperty.resolveWith<BorderSide?>(
+          (Set<WidgetState> states) {
+            if (states.contains(WidgetState.selected)) {
+              return const BorderSide(color: Colors.transparent);
+            }
+            return const BorderSide(color: borderColor);
+          },
+        ),
+      ),
     ),
     useMaterial3: true,
   );
