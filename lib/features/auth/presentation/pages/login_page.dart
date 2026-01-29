@@ -1,5 +1,5 @@
-
 import 'package:field_techy/core/widgets/app_logo.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -10,9 +10,10 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(25),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            crossAxisAlignment: .stretch,
+            mainAxisAlignment: .center,
             children: [
               const AppLogo(),
               const SizedBox(height: 24),
@@ -22,13 +23,25 @@ class LoginPage extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 8),
-              Text(
-                'Don\'t have an account? Sign Up',
-                style: Theme.of(context).textTheme.bodyMedium,
+              RichText(
                 textAlign: TextAlign.center,
+                text: TextSpan(
+                  style: Theme.of(context).textTheme.bodyMedium,
+                  children: [
+                    const TextSpan(text: "Don't have an account? "),
+                    TextSpan(
+                      text: 'Sign Up',
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.secondary,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      recognizer: TapGestureRecognizer()..onTap = () {},
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(height: 24),
-              const Text('Email Address *'),
+              Text('Email Address *', style: Theme.of(context).textTheme.labelLarge),
               const SizedBox(height: 8),
               TextFormField(
                 decoration: const InputDecoration(
@@ -36,7 +49,7 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              const Text('Password *'),
+              Text('Password *', style: Theme.of(context).textTheme.labelLarge),
               const SizedBox(height: 8),
               TextFormField(
                 obscureText: true,

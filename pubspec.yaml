@@ -39,6 +39,7 @@ dependencies:
   dartz: ^0.10.1
   equatable: ^2.0.8
   flutter_svg: ^2.0.10+1
+  google_fonts: ^6.3.2
 
 dev_dependencies:
   flutter_test:

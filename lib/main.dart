@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'core/di/injection.dart' as di;
 import 'core/flavors/flavor_config.dart';
+import 'core/theme/app_theme.dart';
+import 'features/auth/presentation/pages/login_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,30 +17,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: FlavorConfig.instance.values.displayName,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(FlavorConfig.instance.values.displayName),
-      ),
-      body: Center(
-        child: Text(
-          'This is ${FlavorConfig.instance.values.displayName}',
-        ),
-      ),
+      theme: AppTheme.lightTheme,
+      home: const LoginPage(),
     );
   }
 }
