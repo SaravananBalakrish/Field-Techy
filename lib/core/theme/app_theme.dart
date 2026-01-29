@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  static const Color primaryColor = Color(0xFF14B8A6);
-  static const Color secondaryColor = Color(0xFF0F766E);
+  static const Color primaryColor = Color(0xFF0B4F4A);
+  static const Color startColor = Color(0xFF00776F);
+  static const Color secondaryColor = Color(0xFF009966);
   static const Color lightGreen = Color(0xFFD1FAE5);
   static const Color backgroundColor = Color(0xFFF9FAFB);
   static const Color textColor = Color(0xFF111827);
   static const Color subTitleColor = Color(0xFF6B7280);
   static const Color borderColor = Color(0xFFD1D5DB);
-
 
   static final lightTheme = ThemeData(
     primaryColor: primaryColor,
@@ -89,6 +89,18 @@ class AppTheme {
           color: primaryColor,
         ),
       ),
+    ),
+    checkboxTheme: CheckboxThemeData(
+      side: BorderSide(width: 0.5),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+    ),
+    dividerColor: Colors.grey.shade600,
+    dividerTheme: DividerThemeData(
+      color: Colors.grey.shade600,
+      thickness: 0.5,
+      endIndent: 16,
+      indent: 16,
+      space: 5
     ),
     useMaterial3: true,
   );

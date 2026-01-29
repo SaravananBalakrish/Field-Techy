@@ -1,8 +1,8 @@
+import 'package:field_techy/core/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'core/di/injection.dart' as di;
 import 'core/flavors/flavor_config.dart';
 import 'core/theme/app_theme.dart';
-import 'features/auth/presentation/pages/login_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,11 +16,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: FlavorConfig.instance.values.displayName,
       theme: AppTheme.lightTheme,
-      home: const LoginPage(),
+      routerConfig: AppRoutes.router,
     );
   }
 }

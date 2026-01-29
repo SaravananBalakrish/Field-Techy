@@ -1,6 +1,10 @@
+import 'package:field_techy/core/theme/app_theme.dart';
 import 'package:field_techy/core/widgets/app_logo.dart';
+import 'package:field_techy/core/widgets/gradient_button.dart';
+import 'package:field_techy/features/client/utils/client_dashboard_routes.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -75,14 +79,16 @@ class LoginPage extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 24),
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text('Submit'),
+              GradientButton(
+                text: 'Submit',
+                onPressed: () {
+                  context.push(ClientDashboardRoutes.dashboardPath);
+                },
               ),
               const SizedBox(height: 16),
               TextButton.icon(
                 onPressed: () {},
-                icon: const Icon(Icons.mail),
+                icon: const Icon(Icons.mail_outline),
                 label: const Text('Sign In with OTP'),
               ),
             ],
