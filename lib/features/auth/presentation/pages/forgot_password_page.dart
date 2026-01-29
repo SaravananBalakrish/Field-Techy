@@ -8,8 +8,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../utils/auth_routes.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class ForgotPasswordPage extends StatelessWidget {
+  const ForgotPasswordPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class LoginPage extends StatelessWidget {
                 const AppLogo(),
                 const SizedBox(height: 24),
                 Text(
-                  'Sign In',
+                  'Forgot Password',
                   style: Theme.of(context).textTheme.headlineMedium,
                   textAlign: TextAlign.center,
                 ),
@@ -37,17 +37,7 @@ class LoginPage extends StatelessWidget {
                   text: TextSpan(
                     style: Theme.of(context).textTheme.bodyMedium,
                     children: [
-                      const TextSpan(text: "Don't have an account? "),
-                      TextSpan(
-                        text: 'Sign Up',
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.secondary,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        recognizer: TapGestureRecognizer()..onTap = () {
-                          context.push(AuthRoutes.signupPath);
-                        },
-                      ),
+                      const TextSpan(text: "Enter your email address to reset your password."),
                     ],
                   ),
                 ),
@@ -60,35 +50,6 @@ class LoginPage extends StatelessWidget {
                   ),
                   validator: ProfileValidator.validateEmail,
                 ),
-                const SizedBox(height: 16),
-                Text('Password *', style: Theme.of(context).textTheme.labelLarge),
-                const SizedBox(height: 8),
-                TextFormField(
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                    hintText: 'Password',
-                    suffixIcon: Icon(Icons.visibility),
-                  ),
-                  validator: ProfileValidator.validatePassword,
-                ),
-                const SizedBox(height: 16),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Checkbox(value: false, onChanged: (value) {}),
-                        const Text('Remember Me'),
-                      ],
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        context.push(AuthRoutes.forgotPasswordPath);
-                      },
-                      child: const Text('Forgot Password?'),
-                    ),
-                  ],
-                ),
                 const SizedBox(height: 24),
                 GradientButton(
                   text: 'Submit',
@@ -97,14 +58,6 @@ class LoginPage extends StatelessWidget {
                       context.push(ClientDashboardRoutes.dashboardPath);
                     }
                   },
-                ),
-                const SizedBox(height: 16),
-                TextButton.icon(
-                  onPressed: () {
-                    context.push(AuthRoutes.signInWithOtpPath);
-                  },
-                  icon: const Icon(Icons.mail_outline),
-                  label: const Text('Sign In with OTP'),
                 ),
               ],
             ),

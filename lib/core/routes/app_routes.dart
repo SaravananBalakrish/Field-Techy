@@ -13,6 +13,8 @@ class AppRoutes {
     routes: [
       AuthRoutes.login,
       AuthRoutes.signUp,
+      AuthRoutes.signInWithOtp,
+      AuthRoutes.forgotPassword,
       ShellRoute(
         builder: (context, state, child) {
           return Scaffold(
