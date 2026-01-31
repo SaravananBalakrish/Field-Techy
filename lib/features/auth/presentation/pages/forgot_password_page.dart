@@ -1,12 +1,8 @@
-import 'package:field_techy/core/widgets/app_logo.dart';
-import 'package:field_techy/core/widgets/gradient_button.dart';
+import 'package:field_techy/core/widgets/app_widgets.dart';
 import 'package:field_techy/features/auth/utils/profile_validator.dart';
 import 'package:field_techy/features/client/utils/client_dashboard_routes.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../utils/auth_routes.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
   const ForgotPasswordPage({super.key});
@@ -24,7 +20,7 @@ class ForgotPasswordPage extends StatelessWidget {
               crossAxisAlignment: .stretch,
               mainAxisAlignment: .center,
               children: [
-                const AppLogo(),
+                AppWidgets.appLogo(context),
                 const SizedBox(height: 24),
                 Text(
                   'Forgot Password',
@@ -51,14 +47,15 @@ class ForgotPasswordPage extends StatelessWidget {
                   validator: ProfileValidator.validateEmail,
                 ),
                 const SizedBox(height: 24),
-                GradientButton(
+                AppWidgets.gradientButton(
+                  context,
                   text: 'Submit',
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       context.push(ClientDashboardRoutes.dashboardPath);
                     }
                   },
-                ),
+                )
               ],
             ),
           ),

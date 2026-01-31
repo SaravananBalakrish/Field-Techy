@@ -1,4 +1,4 @@
-import 'package:field_techy/core/widgets/gradient_button.dart';
+import 'package:field_techy/core/widgets/app_widgets.dart';
 import 'package:field_techy/features/auth/utils/profile_validator.dart';
 import 'package:flutter/material.dart';
 
@@ -61,7 +61,8 @@ class _ProfileSetupPageState extends State<ProfileSetupPage> {
                     ),
                   ),
                 ),
-                GradientButton(
+                AppWidgets.gradientButton(
+                  context,
                   text: 'Save and Continue',
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {

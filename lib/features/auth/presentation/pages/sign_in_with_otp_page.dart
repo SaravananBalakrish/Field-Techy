@@ -1,5 +1,4 @@
-import 'package:field_techy/core/widgets/app_logo.dart';
-import 'package:field_techy/core/widgets/gradient_button.dart';
+import 'package:field_techy/core/widgets/app_widgets.dart';
 import 'package:field_techy/features/auth/utils/profile_validator.dart';
 import 'package:field_techy/features/client/utils/client_dashboard_routes.dart';
 import 'package:flutter/gestures.dart';
@@ -31,7 +30,7 @@ class _SignInWithOtpPageState extends State<SignInWithOtpPage> {
               crossAxisAlignment: .stretch,
               mainAxisAlignment: .center,
               children: [
-                const AppLogo(),
+                AppWidgets.appLogo(context),
                 const SizedBox(height: 24),
                 Text(
                   'Sign In',
@@ -114,7 +113,8 @@ class _SignInWithOtpPageState extends State<SignInWithOtpPage> {
                   ),
                   ],
                 const SizedBox(height: 24),
-                GradientButton(
+                AppWidgets.gradientButton(
+                  context,
                   text: 'Send OTP',
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {

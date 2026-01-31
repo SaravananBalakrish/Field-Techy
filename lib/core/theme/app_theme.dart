@@ -26,22 +26,27 @@ class AppTheme {
       error: Colors.red,
       onError: Colors.white,
     ),
-    textTheme: GoogleFonts.poppinsTextTheme(ThemeData.light().textTheme).copyWith(
-      headlineMedium: GoogleFonts.poppins(
+    textTheme: GoogleFonts.latoTextTheme(ThemeData.light().textTheme).copyWith(
+      headlineMedium: GoogleFonts.lato(
         color: textColor,
         fontSize: 24,
         fontWeight: FontWeight.bold,
       ),
-      bodyMedium: GoogleFonts.poppins(
+      bodyMedium: GoogleFonts.lato(
         color: subTitleColor,
         fontSize: 14,
       ),
-      labelLarge: GoogleFonts.poppins(
+      labelLarge: GoogleFonts.lato(
         color: textColor,
         fontSize: 14,
         fontWeight: FontWeight.w600,
       )
     ),
+    /*appBarTheme: AppBarThemeData(
+      backgroundColor: Colors.transparent,
+      elevation: 2,
+      surfaceTintColor: backgroundColor,
+    ),*/
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         backgroundColor: secondaryColor,
