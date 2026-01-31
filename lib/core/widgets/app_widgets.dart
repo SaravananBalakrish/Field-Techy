@@ -13,6 +13,14 @@ class AppWidgets {
     );
   }
 
+  static Widget subHeadlineWidget(BuildContext context, {required String text}) {
+    return Text(
+      text,
+      style: Theme.of(context).textTheme.headlineSmall,
+      textAlign: TextAlign.start,
+    );
+  }
+
   static Widget appLogo(BuildContext context, {double? height, double? width}) {
     return SvgPicture.asset(
       AppImages.appLogo,
@@ -57,6 +65,25 @@ class AppWidgets {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  static Widget searchInput(BuildContext context, {Function(String)? onChanged}) {
+    return TextField(
+      onChanged: onChanged,
+      decoration: InputDecoration(
+        hintText: 'Search...',
+        prefixIcon: const Icon(Icons.search),
+        border: OutlineInputBorder(
+          borderRadius: const BorderRadius.all(Radius.circular(30)),
+          borderSide: Theme.of(context).inputDecorationTheme.border!.borderSide,
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: const BorderRadius.all(Radius.circular(30)),
+          borderSide: Theme.of(context).inputDecorationTheme.border!.borderSide,
+        ),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
       ),
     );
   }
@@ -196,6 +223,49 @@ class AppWidgets {
       trailing: isLogout ? null : const Icon(Icons.chevron_right),
       style: ListTileStyle.drawer,
       onTap: onTap,
+    );
+  }
+
+  static BottomNavigationBar bottomNavigationBar(
+    BuildContext context, {
+    required int currentIndex,
+    required void Function(int) onTap,
+  }) {
+    return BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
+      currentIndex: currentIndex,
+      onTap: onTap,
+      selectedItemColor: Theme.of(context).primaryColor,
+      selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
+      unselectedItemColor: Colors.grey,
+      showUnselectedLabels: true,
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home_outlined),
+          activeIcon: Icon(Icons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.cases_outlined),
+          activeIcon: Icon(Icons.cases),
+          label: 'My Jobs',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.add_circle_outline),
+          activeIcon: Icon(Icons.add_circle),
+          label: 'New Job',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.account_balance_wallet_outlined),
+          activeIcon: Icon(Icons.account_balance_wallet),
+          label: 'My Wallet',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person_outline),
+          activeIcon: Icon(Icons.person),
+          label: 'Profile',
+        ),
+      ],
     );
   }
 }

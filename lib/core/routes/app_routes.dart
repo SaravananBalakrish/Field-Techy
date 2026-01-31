@@ -27,7 +27,8 @@ class AppRoutes {
               leadingWidth: 100,
               // title: Text('Client Dashboard'),
             ),
-            endDrawer:  AppWidgets.appDrawer(context),
+            endDrawer: AppWidgets.appDrawer(context),
+            bottomNavigationBar: AppWidgets.bottomNavigationBar(context, currentIndex: 0, onTap: (index) {}),
             body: child,
           );
         },

@@ -6,7 +6,7 @@ class AppTheme {
   static const Color startColor = Color(0xFF00776F);
   static const Color secondaryColor = Color(0xFF009966);
   static const Color lightGreen = Color(0xFFD1FAE5);
-  static const Color backgroundColor = Color(0xFFF9FAFB);
+  static const Color backgroundColor = Colors.white;
   static const Color textColor = Color(0xFF111827);
   static const Color subTitleColor = Color(0xFF6B7280);
   static const Color borderColor = Color(0xFFD1D5DB);
@@ -32,8 +32,13 @@ class AppTheme {
         fontSize: 24,
         fontWeight: FontWeight.bold,
       ),
+        headlineSmall: GoogleFonts.lato(
+          color: textColor,
+          fontSize: 20,
+          fontWeight: FontWeight.w600,
+        ),
       bodyMedium: GoogleFonts.lato(
-        color: subTitleColor,
+        color: textColor,
         fontSize: 14,
       ),
       labelLarge: GoogleFonts.lato(
